@@ -1,27 +1,23 @@
-import { User } from "@prisma/client";
-import { GetServerSideProps, GetServerSidePropsResult } from "next";
+import { GetServerSideProps } from "next";
 import { prisma } from "db/prisma";
+import { Daerah } from "@interfaces/database";
 
-export default function Home({ users }: { users: User[] }) {
+export default function Home({ daerah }: { daerah: Daerah[] }) {
 	return (
 		<div>
-			{users?.map((user) => (
-				<p key={user.id}>{user.fullName}</p>
+			{daerah?.map((data) => (
+				<p key={data.idDaerah}>{data.namaDaerah}</p>
 			))}
 		</div>
 	);
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-	// const res = await fetch(`${process.env.BASE_URL}/api/hello`);
-	// const users = await res.json();
-	// console.log(users);
-
-	const users = await prisma.user.findMany();
+	const daerah = await prisma.daerah.findMany();
 
 	return {
 		props: {
-			users: JSON.parse(JSON.stringify(users)),
+			daerah: JSON.parse(JSON.stringify(daerah)),
 		},
 	};
 };
