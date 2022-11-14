@@ -1,12 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { User } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "db/prisma";
+import { Daerah } from "@interfaces/database";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<User[] | {}>) {
-	const users = await prisma.user.findMany();
-	if (users.length !== 0) {
-		res.status(200).json(users);
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Daerah[] | {}>) {
+	const data = await prisma.daerah.findMany();
+	if (data.length !== 0) {
+		res.status(200).json(data);
 	}
 	res.status(400).json({ message: "No users found" });
 }

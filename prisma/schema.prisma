@@ -10,11 +10,44 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id Int @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  fullName String
-  email String @unique
-  bio String?
+model Daerah {
+  idDaerah         Int                      @id @default(autoincrement())
+  namaDaerah       String
+  letakPeta        LetakPeta[]
+  bahasa           Bahasa[]
+  toHasilTranslate HasilTranslateToDaerah[]
+}
+
+model LetakPeta {
+  idPeta   Int    @id @default(autoincrement())
+  titikX   Int
+  titikY   Int
+  warna    String?
+  idDaerah Int
+  daerah   Daerah @relation(fields: [idDaerah], references: [idDaerah])
+}
+
+model Bahasa {
+  idBahasa       Int              @id @default(autoincrement())
+  kalimat        String
+  voiceOver      Bytes?
+  HasilTranslate HasilTranslate[]
+  idDaerah       Int
+  daerah         Daerah           @relation(fields: [idDaerah], references: [idDaerah])
+}
+
+model HasilTranslateToDaerah {
+  id               Int            @id @default(autoincrement())
+  idDaerah         Int
+  daerah           Daerah         @relation(fields: [idDaerah], references: [idDaerah])
+  idHasilTranslate Int
+  hasilTranslate   HasilTranslate @relation(fields: [idHasilTranslate], references: [idTranslate])
+}
+
+model HasilTranslate {
+  idTranslate    Int                      @id @default(autoincrement())
+  hasilTranslate String
+  toDaerah       HasilTranslateToDaerah[]
+  idBahasa       Int
+  bahasa         Bahasa                   @relation(fields: [idBahasa], references: [idBahasa])
 }
