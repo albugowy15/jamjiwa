@@ -1,3 +1,3 @@
-import HomePage from "@modules/home/page/HomePage";
+import MainMapPage from "@modules/home/page/MainMapPage";
 
-export default HomePage;
+export default MainMapPage;
