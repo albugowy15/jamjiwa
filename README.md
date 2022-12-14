@@ -1,17 +1,10 @@
-# JAMJIWA - Website Pembeda Karakter Bahasa Jawa di Daerah Jawa Timur
 
-Dikembangkan oleh Kelompok Balingo :
+  # MPPL
 
-| Nama                     | NRP        |
-| ------------------------ | ---------- |
-| NUR MUHAMMAD AINUL YAQIN | 5025201011 |
-| FARROS HILMI SYAFEI      | 5025201012 |
-| ANGELA ORYZA PRABOWO     | 5025201022 |
-| MUHAMMAD ISMAIL          | 5025201223 |
+  Note: Please ensure you have installed <code><a href="https://nodejs.org/en/download/">node js</a></code>
 
-## Jalankan project ini di lokal
-
-1. Clone repo ini
-2. Jalankan command `npm install`
-3. Jalankan command `npm run dev`
-4. Buka browser, masukkan url `http://localhost:3000`
+  To preview and run the project on your device:
+  1) Open project folder in <a href="https://code.visualstudio.com/download">Visual Studio Code</a>
+  2) In the terminal, run `npm install`
+  3) Run `npm run dev` to view project in browser
+  
