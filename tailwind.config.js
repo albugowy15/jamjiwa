@@ -45,5 +45,8 @@ module.exports = {
       sm: { max: "428px" },
     },
   },
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
   corePlugins: { preflight: false },
 };
