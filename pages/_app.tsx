@@ -21,7 +21,22 @@ export default function MyApp(props: any) {
   }, []);
 
   const muiTheme = createTheme();
-  const chakraTheme = extendTheme();
+  const chakraTheme = extendTheme({
+    colors: {
+      gray: {
+        50: "rgba(247, 250, 252, 0.24)",
+        100: "#edf2f7",
+        200: "#e2e8f0",
+        300: "#cbd5e0",
+        400: "rgba(159, 173, 191, 0.4)",
+        500: "#718096",
+        600: "#4a5568",
+        700: "#2c3748",
+        800: "#1a202c",
+        900: "#171923",
+      },
+    },
+  });
   const emotionCache = createCache({
     key: "emotion-cache",
     prepend: true,

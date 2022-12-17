@@ -1,29 +1,22 @@
 import type { NextPage } from "next";
 import { useCallback } from "react";
-import { Button } from "@mui/material";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
-const ExplorePage: NextPage = () => {
+const LandingPage: NextPage = () => {
   const router = useRouter();
 
-  const onMalangContainerClick = useCallback(() => {
-    router.push("/hotels-page2");
-  }, [router]);
+  const onScrollContainerClick = useCallback(() => {
+    const anchor = document.querySelector(
+      "[data-scroll-to='textJumbotronContainer']"
+    );
+    if (anchor) {
+      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+  }, []);
 
-  const onMadiunImageClick = useCallback(() => {
-    router.push("/hotels-page4");
-  }, [router]);
-
-  const onSurabayaContainerClick = useCallback(() => {
-    router.push("/hotels-page3");
-  }, [router]);
-
-  const onBanyuwangiContainerClick = useCallback(() => {
-    router.push("/hotels-page1");
-  }, [router]);
-
-  const onMaduraContainerClick = useCallback(() => {
-    router.push("/hotels-page");
+  const onButton3Click = useCallback(() => {
+    router.push("/explore-page");
   }, [router]);
 
   const onFaceboookCircleIconClick = useCallback(() => {
@@ -55,150 +48,154 @@ const ExplorePage: NextPage = () => {
   }, []);
 
   return (
-    <div className="relative bg-gray-900 w-full overflow-hidden flex flex-col items-center justify-start gap-[88px] text-left text-2xl text-gray-200 font-inter sm:pl-[0px] sm:box-border">
-      <div className="bg-gray-900 flex flex-row p-[31px_112px] box-border items-center justify-start gap-[529px] sm:pl-[89px] sm:pr-[0px] sm:box-border">
-        <div className="relative w-[217px] h-[40px] shrink-0">
-          <b className="absolute top-[1px] left-[75px] leading-[120%] inline-block">
+    <div className="relative bg-gray-900 w-full overflow-hidden flex flex-col items-center justify-start gap-[64px] text-left text-2xl text-white-200 font-inter lg:w-[1200px] lg:flex-col lg:pl-[0px] lg:pr-[0px] lg:box-border md:w-[768px] sm:w-[428px]">
+      <div className="bg-gray-900 flex flex-row p-[53px_120px] box-border items-center justify-start gap-[329px] text-gray-200 lg:flex-row lg:pl-[60px] lg:pr-[60px] lg:pb-[31px] lg:box-border md:flex-row md:pl-[40px] md:pr-[40px] md:box-border sm:p-[30px_20px] sm:box-border">
+        <div className="relative w-[305px] h-[6px] shrink-0 lg:w-[104px] lg:h-[63px] md:w-[11px]">
+          <div className="absolute top-[0px] left-[0px] bg-gray-100 w-[86px] h-[63px]" />
+          <b className="absolute top-[12.5px] left-[163px] leading-[120%] inline-block">
             JamJiwa
           </b>
-          <div className="absolute top-[-15px] left-[-11px] bg-gray-100 w-[86px] h-[63px]" />
         </div>
-        <div className="flex flex-row items-start justify-start gap-[56px]">
-          <img
-            className="relative w-[24px] h-[24px] shrink-0 overflow-hidden hidden md:flex"
-            alt=""
-            src="../notification.svg"
-          />
-          <Button sx={{ width: 186 }} variant="outlined" color="primary">
-            Home
-          </Button>
-          <Button sx={{ width: 186 }} variant="outlined" color="primary">
-            Explore Jatim
-          </Button>
+        <div className="flex flex-row items-start justify-start gap-[56px] text-base text-white-200 lg:w-[1200px] lg:pl-[250px] lg:box-border md:w-[768px] md:flex-col md:pl-[400px] md:box-border sm:w-[428px] sm:pl-[1800px] sm:pr-[900px] sm:box-border">
+          <a
+            className="[text-decoration:none] rounded-[12px] bg-gray-1400 w-[186px] shrink-0 flex flex-row p-[12px_32px] box-border items-center justify-center text-[inherit]"
+            href="/"
+          >
+            <div className="relative tracking-[-0.05em] leading-[24px] font-semibold inline-block">
+              Home
+            </div>
+          </a>
+          <a
+            className="[text-decoration:none] rounded-[12px] bg-gray-1400 w-[186px] shrink-0 flex flex-row p-[12px_32px] box-border items-center justify-center text-[inherit]"
+            href="/Explore-Page"
+          >
+            <div className="relative tracking-[-0.05em] leading-[24px] font-semibold inline-block">
+              Explore Jatim
+            </div>
+          </a>
+          <a
+            className="[text-decoration:none] rounded-[12px] [background:linear-gradient(180deg,_#5561ff,_#3643fc,_#3643fc)] w-[186px] shrink-0 flex flex-row p-[12px_32px] box-border items-center justify-center text-[inherit]"
+            href="/login"
+          >
+            <div className="relative tracking-[-0.05em] leading-[24px] font-semibold inline-block">
+              Login
+            </div>
+          </a>
         </div>
       </div>
-      <div className="hidden flex-col items-start justify-start gap-[10px]">
-        <img
-          className="relative w-[1194.63px] h-[932px] shrink-0 object-cover"
-          alt=""
-          src="../group-2@2x.png"
-        />
-        <img
-          className="relative w-[1194.25px] h-[932px] shrink-0 object-cover hidden"
-          alt=""
-          src="../image-2@2x.png"
-        />
-      </div>
-      <div className="flex flex-col items-center justify-start gap-[111px] text-center text-3xl text-white-200 sm:w-[428px] sm:flex-col sm:pl-[720px] sm:box-border">
-        <div className="w-[1233.86px] h-[173.34px] shrink-0 flex flex-row p-[0px_0px_0px_150px] box-border items-center justify-start gap-[0px]">
-          <b className="relative leading-[120%] inline-block">Where</b>
+      <div className="w-[1453px] flex flex-col p-[0px_120px_21px] box-border items-center justify-start gap-[64px] text-center text-3xl lg:pl-[60px] lg:pr-[60px] lg:box-border md:flex-col md:pl-[15px] md:pr-[30px] md:box-border">
+        <div className="flex flex-row p-[20px_20px_10px_60px] box-border items-center justify-start gap-[0px] lg:flex-row lg:pl-[40px] lg:pt-[20px] lg:pr-[10px] lg:box-border md:flex md:flex-col md:pl-[0px] md:pt-[0px] md:pr-[0px] md:box-border sm:flex-col sm:pl-[0px] sm:box-border">
+          <b className="relative leading-[120%] inline-block">The</b>
           <b className="relative text-5xl leading-[120%] inline-block text-gray-300">
-            LOCATION
+            BEST
           </b>
-          <b className="relative leading-[120%] inline-block">Are You Now?</b>
+          <b className="relative leading-[120%] inline-block">
+            Jawa Timur dictionary to help you!
+          </b>
         </div>
-        <div className="relative w-[1418.25px] h-[770.25px] shrink-0 text-left text-xl">
-          <div
-            className="absolute top-[238.55px] left-[411.83px] w-[515.08px] h-[395.21px] cursor-pointer"
-            onClick={onMalangContainerClick}
-          >
+        <div className="flex flex-row p-[0px_120px] box-border items-start justify-start gap-[44px] lg:pl-[60px] lg:pr-[60px] lg:box-border md:flex-col md:pl-[0px] md:pr-[0px] md:box-border sm:pl-[0px] sm:box-border">
+          <img
+            className="relative rounded-[16px] w-[348px] h-[234px] shrink-0 object-cover"
+            alt=""
+            src="../rectangle-15@2x.png"
+          />
+          <img
+            className="relative rounded-[16px] w-[348px] h-[234px] shrink-0 object-cover"
+            alt=""
+            src="../rectangle-16@2x.png"
+          />
+          <img
+            className="relative rounded-[16px] w-[348px] h-[234px] shrink-0 object-cover"
+            alt=""
+            src="../rectangle-17@2x.png"
+          />
+        </div>
+      </div>
+      <div
+        className="flex flex-col items-center justify-start gap-[0px] cursor-pointer text-center text-base text-gray-1500 lg:pl-[0px] lg:box-border md:pl-[0px] md:box-border sm:pl-[00px] sm:box-border"
+        onClick={onScrollContainerClick}
+      >
+        <div className="relative leading-[150%] font-medium flex items-center justify-center w-[186px]">
+          Scroll to have fun!
+        </div>
+        <img
+          className="relative w-[48px] h-[48px] shrink-0"
+          alt=""
+          src="../chevroncompactdoubledown.svg"
+        />
+      </div>
+      <div
+        className="w-[1450px] flex flex-row p-[0px_172px_0px_300px] box-border items-center justify-start gap-[10px] text-center text-3xl lg:w-[1200px] lg:pl-[160px] lg:pr-[86px] lg:box-border md:w-[768px] md:flex-col md:pl-[20px] md:pr-[20px] md:box-border sm:flex-col sm:pl-[50px] sm:pr-[50px] sm:box-border"
+        data-scroll-to="textJumbotronContainer"
+      >
+        <b className="relative leading-[120%] inline-block">What’s Inside of</b>
+        <b className="relative text-5xl leading-[120%] inline-block text-gray-300">
+          JamJiwa
+        </b>
+        <b className="relative leading-[120%] inline-block">?</b>
+      </div>
+      <div className="w-[1455px] overflow-x-auto flex flex-col p-[0px_120px] box-border items-start justify-start text-4xl lg:pl-[60px] lg:pr-[60px] lg:box-border md:pl-[0px] md:pr-[30px] md:box-border">
+        <div className="w-[1228px] flex flex-col items-start justify-start">
+          <div className="w-[1266px] flex flex-row p-[0px_20px_0px_0px] box-border items-start justify-end gap-[52px] lg:w-[1266px] lg:flex-row lg:pl-[30px] lg:pr-[0px] lg:pb-[50px] lg:box-border md:w-[768px] md:flex-col md:pl-[450px] md:pt-[0px] md:box-border sm:w-[428px] sm:pl-[450px] sm:pb-[50px] sm:box-border">
             <img
-              className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover hover:animate-[1s_ease_0s_infinite_normal_none_wobble-hor-bottom] hover:opacity-[1]"
+              className="relative rounded-[16px] w-[507px] h-[341px] shrink-0 object-cover"
               alt=""
-              src="../malang@2x.png"
+              src="../rectangle-18@2x.png"
             />
-          </div>
-          <div className="absolute top-[150.73px] left-[0px] w-[492.53px] h-[456.93px]">
-            <img
-              className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover cursor-pointer hover:shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] hover:animate-[1s_ease_0s_infinite_normal_none_bounce-top] hover:opacity-[1]"
-              alt=""
-              src="../madiun@2x.png"
-              onClick={onMadiunImageClick}
-            />
-          </div>
-          <div
-            className="absolute top-[0px] left-[268.22px] w-[522.2px] h-[327.56px] cursor-pointer"
-            onClick={onSurabayaContainerClick}
-          >
-            <img
-              className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover hover:animate-[1s_ease_0s_infinite_normal_none_bounce-top] hover:opacity-[1]"
-              alt=""
-              src="../surabaya@2x.png"
-            />
-          </div>
-          <div
-            className="absolute top-[280.09px] left-[738.2px] w-[680.05px] h-[490.16px] cursor-pointer"
-            onClick={onBanyuwangiContainerClick}
-          >
-            <img
-              className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover hover:animate-[1s_ease_0s_infinite_normal_none_bounce-top] hover:opacity-[1]"
-              alt=""
-              src="../banyuwangi@2x.png"
-            />
-          </div>
-          <div
-            className="absolute top-[7.12px] left-[694.29px] w-[723.96px] h-[231.43px] cursor-pointer"
-            onClick={onMaduraContainerClick}
-          >
-            <img
-              className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover hover:animate-[1s_ease_0s_infinite_normal_none_bounce-top] hover:opacity-[1]"
-              alt=""
-              src="../madura@2x.png"
-            />
-          </div>
-          <div className="absolute top-[128.18px] left-[1000.49px] rounded-[24px] bg-gray-700 w-[356.05px] h-[115.35px] overflow-hidden flex flex-col items-center justify-end">
-            <div className="self-stretch rounded-[24px] bg-gray-500 flex flex-col p-[24px] box-border items-start justify-start">
-              <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
-                <b className="self-stretch relative leading-[120%] inline-block">
-                  Tips! #1
-                </b>
-                <div className="self-stretch relative text-base leading-[150%] font-medium text-gray-1500 inline-block">
-                  Hover on your desired location!
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute top-[521.01px] left-[75.96px] rounded-[24px] bg-gray-700 w-[356.05px] h-[115.35px] overflow-hidden flex flex-col items-center justify-end">
-            <div className="self-stretch rounded-[24px] bg-gray-500 flex flex-col p-[24px] box-border items-start justify-start">
-              <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
-                <b className="self-stretch relative leading-[120%] inline-block">
-                  Tips! #2
-                </b>
-                <div className="self-stretch relative text-base leading-[150%] font-medium text-gray-1500 inline-block">
-                  Is it what you want? Click it!
-                </div>
+            <div className="flex flex-col items-start justify-start gap-[0px]">
+              <b className="relative leading-[120%] inline-block">
+                Find Common Words!
+              </b>
+              <div className="relative text-xl leading-[120%] inline-block w-[568px] h-[221px] shrink-0">
+                <p className="[margin-block-start:0] [margin-block-end:0px]">
+                  <span className="font-medium">{`When you travel to a place in East Java, you must have experienced confusion about the general vocabulary that is there. `}</span>
+                </p>
+                <p className="[margin-block-start:0] [margin-block-end:0px]">
+                  <span className="font-medium">&nbsp;</span>
+                </p>
+                <p className="[margin-block-start:0] [margin-block-end:0px]">
+                  <span className="font-medium">{`Moreover, a different accent from what you have will be more difficult to understand. `}</span>
+                </p>
+                <p className="[margin-block-start:0] [margin-block-end:0px]">
+                  <span className="font-medium">&nbsp;</span>
+                </p>
+                <p className="m-[0]">
+                  <b className="font-inter">JamJiwa</b>
+                  <span className="font-medium">
+                    {" "}
+                    will be the answer to your problem!
+                  </span>
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-start justify-start sm:w-[428px]">
-        <div className="rounded-[24px_24px_0px_0px] bg-gray-800 [border:1px_solid_rgba(255,_255,_255,_0.1)] box-border w-[1442px] flex flex-row p-[40px_112px] items-center justify-start gap-[0px]">
+      <Link href="/explore-page">
+        <a
+          className="cursor-pointer [text-decoration:none] rounded-[12px] [background:linear-gradient(180deg,_#5561ff,_#3643fc,_#3643fc)] w-[186px] flex flex-row p-[12px_32px] box-border items-center justify-center text-base text-[inherit]"
+          onClick={onButton3Click}
+        >
+          <div className="relative tracking-[-0.05em] leading-[24px] font-semibold inline-block">
+            Explore Now!
+          </div>
+        </a>
+      </Link>
+      <div className="w-[1468px] h-[120px] shrink-0 flex flex-col items-start justify-start text-gray-200 lg:w-[1200px] lg:h-[150px] lg:flex-row lg:pl-[0px] lg:pr-[0px] lg:pb-[0px] lg:box-border md:w-[768px] md:h-[180px] md:flex-row md:pr-[0px] md:box-border sm:w-[428px] sm:h-[120px] sm:flex-col">
+        <div className="rounded-[24px_24px_0px_0px] bg-gray-800 [border:1px_solid_rgba(255,_255,_255,_0.1)] box-border w-[1442px] flex flex-row p-[40px_98px_40px_120px] items-center justify-start gap-[197px]">
           <div className="relative w-[217px] h-[40px] shrink-0">
             <b className="absolute top-[1px] left-[75px] leading-[120%] inline-block">
               JamJiwa
             </b>
             <div className="absolute top-[-15px] left-[-11px] bg-gray-100 w-[86px] h-[63px]" />
           </div>
-          <div className="flex flex-col items-start justify-start gap-[8px] text-base text-gray-1500">
-            <div className="flex flex-row p-[0px_12px_0px_0px] box-border items-center justify-start gap-[0px]">
-              <img
-                className="relative w-[48px] h-[48px] shrink-0 hidden"
-                alt=""
-                src="../icon.svg"
-              />
-              <img
-                className="relative w-[124px] h-[48px] shrink-0 hidden"
-                alt=""
-                src="../wordmark.svg"
-              />
-            </div>
+          <div className="flex flex-col items-start justify-start text-base text-gray-1500">
             <div className="relative leading-[150%] font-medium inline-block">
               © 2022 JamJiwa. All rights reserved.
             </div>
           </div>
-          <div className="flex-1 relative h-[32px]">
-            <div className="absolute h-[75%] top-[12.5%] right-[0px] bottom-[12.5%] flex flex-row items-start justify-start gap-[24px]">
+          <div className="flex-1 flex flex-col p-[4px_0px] box-border items-end justify-start">
+            <div className="flex flex-row items-start justify-start gap-[24px]">
               <img
                 className="relative w-[24px] h-[24px] shrink-0 cursor-pointer"
                 alt=""
@@ -249,4 +246,4 @@ const ExplorePage: NextPage = () => {
   );
 };
 
-export default ExplorePage;
+export default LandingPage;

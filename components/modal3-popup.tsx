@@ -20,7 +20,10 @@ type Modal3PopupType = {
 const Modal3Popup: NextPage<Modal3PopupType> = ({ onClose }) => {
   return (
     <div className="relative rounded-[24px] bg-gray-700 w-[658px] h-[689px] flex flex-col p-[40px] box-border items-center justify-start gap-[32px] max-w-full max-h-full overflow-auto sm:p-[20px] sm:box-border">
-      <div className="self-stretch h-[24px] shrink-0 flex flex-col items-end justify-start">
+      <div
+        className="self-stretch h-[24px] shrink-0 flex flex-col items-end justify-start cursor-pointer"
+        onClick={onClose}
+      >
         <img
           className="relative w-[24px] h-[24px] shrink-0 cursor-pointer"
           alt=""

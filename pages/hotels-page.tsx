@@ -1,21 +1,17 @@
 import type { NextPage } from "next";
 import { useState, useCallback } from "react";
-import Modal2Popup from "../components/modal2-popup";
+import Modal1Popup from "../components/modal1-popup";
 import PortalPopup from "../components/portal-popup";
 
 const HotelsPage: NextPage = () => {
-  const [isModal2PopupOpen, setModal2PopupOpen] = useState(false);
+  const [isModal1PopupOpen, setModal1PopupOpen] = useState(false);
 
-  const openModal2Popup = useCallback(() => {
-    setModal2PopupOpen(true);
+  const openModal1Popup = useCallback(() => {
+    setModal1PopupOpen(true);
   }, []);
 
-  const closeModal2Popup = useCallback(() => {
-    setModal2PopupOpen(false);
-  }, []);
-
-  const onScrollContainerClick = useCallback(() => {
-    // Please sync "Madiun" to the project
+  const closeModal1Popup = useCallback(() => {
+    setModal1PopupOpen(false);
   }, []);
 
   const onFaceboookCircleIconClick = useCallback(() => {
@@ -75,12 +71,12 @@ const HotelsPage: NextPage = () => {
                 <img
                   className="relative w-[24px] h-[24px] shrink-0 overflow-hidden hidden md:flex"
                   alt=""
-                  src="../notification1.svg"
+                  src="../notification.svg"
                 />
                 <img
                   className="relative w-[24px] h-[24px] shrink-0 overflow-hidden"
                   alt=""
-                  src="../notification2.svg"
+                  src="../notification1.svg"
                 />
                 <img
                   className="rounded-[38px] w-[36px] h-[36px] shrink-0 object-cover"
@@ -110,17 +106,17 @@ const HotelsPage: NextPage = () => {
               <img
                 className="relative rounded-[16px] w-[348px] h-[234px] shrink-0 object-cover"
                 alt=""
-                src="../rectangle-15@2x.png"
+                src="../rectangle-151@2x.png"
               />
               <img
                 className="relative rounded-[16px] w-[348px] h-[234px] shrink-0 object-cover"
                 alt=""
-                src="../rectangle-16@2x.png"
+                src="../rectangle-161@2x.png"
               />
               <img
                 className="relative rounded-[16px] w-[348px] h-[234px] shrink-0 object-cover"
                 alt=""
-                src="../rectangle-17@2x.png"
+                src="../rectangle-171@2x.png"
               />
             </div>
           </div>
@@ -134,9 +130,9 @@ const HotelsPage: NextPage = () => {
             <img
               className="absolute h-[43.26%] w-[55.99%] top-[21.5%] right-[19.42%] bottom-[35.25%] left-[24.59%] max-w-full overflow-hidden max-h-full object-cover"
               alt=""
-              src="../madura1@2x.png"
+              src="../madura@2x.png"
             />
-            <div className="absolute top-[301px] left-[1144px] rounded-[16px] bg-gray-1400 w-[149px] h-[88px] overflow-hidden flex flex-col p-[16px] box-border items-start justify-start gap-[0px]">
+            <div className="absolute top-[301px] left-[1144px] rounded-[16px] bg-gray-1300 w-[149px] h-[88px] overflow-hidden flex flex-col p-[16px] box-border items-start justify-start gap-[0px]">
               <div className="self-stretch rounded-[8px] overflow-hidden flex flex-row p-[16px] box-border items-center justify-center gap-[12px]">
                 <div className="relative leading-[24px] font-semibold inline-block">
                   Madiun
@@ -151,7 +147,7 @@ const HotelsPage: NextPage = () => {
               </div>
               <div className="self-stretch overflow-hidden hidden" />
             </div>
-            <div className="absolute top-[447px] left-[1128px] rounded-[16px] bg-gray-1400 w-[149px] h-[88px] overflow-hidden flex flex-col p-[16px] box-border items-start justify-start gap-[0px]">
+            <div className="absolute top-[447px] left-[1128px] rounded-[16px] bg-gray-1300 w-[149px] h-[88px] overflow-hidden flex flex-col p-[16px] box-border items-start justify-start gap-[0px]">
               <div className="self-stretch rounded-[8px] overflow-hidden flex flex-row p-[16px] box-border items-center justify-center gap-[12px]">
                 <div className="relative leading-[24px] font-semibold inline-block">
                   Pacitan
@@ -166,7 +162,7 @@ const HotelsPage: NextPage = () => {
               </div>
               <div className="self-stretch overflow-hidden hidden" />
             </div>
-            <div className="absolute top-[34px] left-[105px] rounded-[16px] bg-gray-1400 w-[149px] h-[88px] overflow-hidden flex flex-col p-[16px] box-border items-start justify-start gap-[0px]">
+            <div className="absolute top-[34px] left-[105px] rounded-[16px] bg-gray-1300 w-[149px] h-[88px] overflow-hidden flex flex-col p-[16px] box-border items-start justify-start gap-[0px]">
               <div className="self-stretch rounded-[8px] overflow-hidden flex flex-row p-[16px] box-border items-center justify-center gap-[12px]">
                 <div className="relative leading-[24px] font-semibold inline-block">
                   Ngawi
@@ -181,7 +177,7 @@ const HotelsPage: NextPage = () => {
               </div>
               <div className="self-stretch overflow-hidden hidden" />
             </div>
-            <div className="absolute top-[146px] left-[1101px] rounded-[16px] bg-gray-1400 w-[149px] h-[88px] overflow-hidden flex flex-col p-[16px] box-border items-start justify-start gap-[0px]">
+            <div className="absolute top-[146px] left-[1101px] rounded-[16px] bg-gray-1300 w-[149px] h-[88px] overflow-hidden flex flex-col p-[16px] box-border items-start justify-start gap-[0px]">
               <div className="self-stretch rounded-[8px] overflow-hidden flex flex-row p-[16px] box-border items-center justify-center gap-[12px]">
                 <div className="relative leading-[24px] font-semibold inline-block">
                   Nganjuk
@@ -196,7 +192,7 @@ const HotelsPage: NextPage = () => {
               </div>
               <div className="self-stretch overflow-hidden hidden" />
             </div>
-            <div className="absolute top-[0px] left-[1053px] rounded-[16px] bg-gray-1400 w-[149px] h-[88px] overflow-hidden flex flex-col p-[16px] box-border items-start justify-start gap-[0px]">
+            <div className="absolute top-[0px] left-[1053px] rounded-[16px] bg-gray-1300 w-[149px] h-[88px] overflow-hidden flex flex-col p-[16px] box-border items-start justify-start gap-[0px]">
               <div className="self-stretch rounded-[8px] overflow-hidden flex flex-row p-[16px] box-border items-center justify-center gap-[12px]">
                 <div className="relative leading-[24px] font-semibold inline-block">
                   Bojonegoro
@@ -210,7 +206,7 @@ const HotelsPage: NextPage = () => {
               </div>
               <div className="self-stretch overflow-hidden hidden" />
             </div>
-            <div className="absolute top-[180px] left-[58px] rounded-[16px] bg-gray-1400 w-[149px] h-[88px] overflow-hidden flex flex-col p-[16px] box-border items-start justify-start gap-[0px]">
+            <div className="absolute top-[180px] left-[58px] rounded-[16px] bg-gray-1300 w-[149px] h-[88px] overflow-hidden flex flex-col p-[16px] box-border items-start justify-start gap-[0px]">
               <div className="self-stretch rounded-[8px] overflow-hidden flex flex-row p-[16px] box-border items-center justify-center gap-[12px]">
                 <div className="relative leading-[24px] font-semibold inline-block">
                   Magetan
@@ -225,7 +221,7 @@ const HotelsPage: NextPage = () => {
               </div>
               <div className="self-stretch overflow-hidden hidden" />
             </div>
-            <div className="absolute top-[326px] left-[0px] rounded-[16px] bg-gray-1400 w-[149px] h-[88px] overflow-hidden flex flex-col p-[16px] box-border items-start justify-start gap-[0px]">
+            <div className="absolute top-[326px] left-[0px] rounded-[16px] bg-gray-1300 w-[149px] h-[88px] overflow-hidden flex flex-col p-[16px] box-border items-start justify-start gap-[0px]">
               <div className="self-stretch rounded-[8px] overflow-hidden flex flex-row p-[16px] box-border items-center justify-center gap-[12px]">
                 <div className="relative leading-[24px] font-semibold inline-block">
                   Ponorogo
@@ -242,18 +238,15 @@ const HotelsPage: NextPage = () => {
             </div>
           </div>
         </div>
-        <div
-          className="w-[1440px] flex flex-col items-center justify-start gap-[0px] cursor-pointer text-base text-gray-1500"
-          onClick={onScrollContainerClick}
-        >
+        <div className="w-[1440px] flex flex-col items-center justify-start gap-[0px] text-base text-gray-1500">
           <div className="relative leading-[150%] font-medium flex items-center justify-center w-[186px]">
             Scroll to have fun!
           </div>
           <img
             className="relative w-[48px] h-[48px] shrink-0 cursor-pointer"
             alt=""
-            src="../chevroncompactdoubledown.svg"
-            onClick={openModal2Popup}
+            src="../chevroncompactdoubledown1.svg"
+            onClick={openModal1Popup}
           />
         </div>
         <div className="self-stretch flex flex-col items-start justify-start text-left text-2xl text-gray-200">
@@ -311,7 +304,7 @@ const HotelsPage: NextPage = () => {
                   <img
                     className="relative w-[24px] h-[24px] shrink-0 overflow-hidden cursor-pointer"
                     alt=""
-                    src="../frame-101.svg"
+                    src="../frame-10.svg"
                     onClick={onFrameIcon1Click}
                   />
                 </div>
@@ -320,13 +313,13 @@ const HotelsPage: NextPage = () => {
           </div>
         </div>
       </div>
-      {isModal2PopupOpen && (
+      {isModal1PopupOpen && (
         <PortalPopup
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
-          onOutsideClick={closeModal2Popup}
+          onOutsideClick={closeModal1Popup}
         >
-          <Modal2Popup onClose={closeModal2Popup} />
+          <Modal1Popup onClose={closeModal1Popup} />
         </PortalPopup>
       )}
     </>
