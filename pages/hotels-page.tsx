@@ -12,19 +12,7 @@ import scrollIcon from "../public/chevroncompactdoubledown.svg";
 const location = ["Ngawi", "Magetan", "Ponorogo", "Bojonegoro", "Nganjuk", "Madiun", "Pacitan"];
 
 const HotelsPage: NextPage = () => {
-	const [isModal2PopupOpen, setModal2PopupOpen] = useState(false);
-
-	const openModal2Popup = useCallback(() => {
-		setModal2PopupOpen(true);
-	}, []);
-
-	const closeModal2Popup = useCallback(() => {
-		setModal2PopupOpen(false);
-	}, []);
-
-	const onScrollContainerClick = useCallback(() => {
-		// Please sync "Madiun" to the project
-	}, []);
+	const [openModal, setOpenModal] = useState(false);
 
 	return (
 		<>
@@ -57,12 +45,13 @@ const HotelsPage: NextPage = () => {
 						</div>
 					))}
 				</div>
-				<div className="my-6 flex flex-col items-center cursor-pointer text-base text-gray-1500" onClick={onScrollContainerClick}>
+				<div className="py-5" />
+				<div className="my-6 flex flex-col items-center cursor-pointer text-base text-gray-1500" onClick={() => setOpenModal(true)}>
 					<p>Scroll to have fun!</p>
-					<Image width={48} height={48} className="cursor-pointer" alt="" src={scrollIcon} onClick={openModal2Popup} />
+					<Image width={48} height={48} className="cursor-pointer" alt="" src={scrollIcon} />
 				</div>
 			</div>
-			<Modal2Popup />
+			<Modal2Popup openModal={openModal} setOpenModal={setOpenModal} />
 			{/* {isModal2PopupOpen && (
 				<PortalPopup overlayColor="rgba(113, 113, 113, 0.3)" placement="Centered" onOutsideClick={closeModal2Popup}>
 					<Modal2Popup onClose={closeModal2Popup} />
