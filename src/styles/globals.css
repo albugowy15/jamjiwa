@@ -5,5 +5,5 @@
 @tailwind utilities;
 
 body {
-	@apply text-white bg-bgPrimary min-h-screen font-inter;
+	@apply text-white-100 bg-bgPrimary min-h-screen font-inter;
 }

@@ -19,15 +19,12 @@ export default function Header() {
 					{expandNav ? <MdClose className="hover:cursor-pointer" size={30} onClick={() => setExpandNav(!expandNav)} /> : <HiMenuAlt3 className="hover:cursor-pointer" onClick={() => setExpandNav(!expandNav)} size={30} />}
 				</div>
 
-				<ul className="hidden md:flex gap-2 md:gap-6 lg:gap-16 justify-between font-semibold">
+				<ul className="hidden md:flex gap-2 md:gap-6 justify-between font-semibold">
 					<li className="py-3 px-4 bg-btnPrimary rounded-xl text-sm md:min-w-[150px] text-center">
 						<Link href="/">Home</Link>
 					</li>
 					<li className="py-3 px-4 bg-btnPrimary rounded-xl text-sm md:min-w-[150px] text-center">
 						<Link href="/explore">Explore Jatim</Link>
-					</li>
-					<li className="py-3 px-4 bg-btnSecondary rounded-xl text-sm md:min-w-[150px] text-center">
-						<Link href="/login">Login</Link>
 					</li>
 				</ul>
 				<ul className={`${expandNav ? "flex" : "hidden"} absolute flex-col gap-2 mx-auto top-12 left-0 right-0 px-7 drop-shadow-2xl pb-10 z-50 bg-bgPrimary`}>
