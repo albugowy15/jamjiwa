@@ -11,43 +11,52 @@ datasource db {
 }
 
 model Daerah {
-  idDaerah         Int                      @id @default(autoincrement())
-  namaDaerah       String
-  letakPeta        LetakPeta[]
-  bahasa           Bahasa[]
-  toHasilTranslate HasilTranslateToDaerah[]
+  id     String   @id @default(uuid())
+  nama   String
+  Kota   Kota[]
+  Bahasa Bahasa[]
 }
 
-model LetakPeta {
-  idPeta   Int    @id @default(autoincrement())
-  titikX   Int
-  titikY   Int
-  warna    String?
-  idDaerah Int
-  daerah   Daerah @relation(fields: [idDaerah], references: [idDaerah])
+model Kota {
+  id       String @id @default(uuid())
+  nama     String
+  idDaerah String
+  daerah   Daerah @relation(fields: [idDaerah], references: [id])
+}
+
+model TipeBahasa {
+  id              Int               @id @default(autoincrement())
+  tipe            String
+  Bahasa          Bahasa[]
+  BahasaIndonesia BahasaIndonesia[]
 }
 
 model Bahasa {
-  idBahasa       Int              @id @default(autoincrement())
-  kalimat        String
-  voiceOver      Bytes?
-  HasilTranslate HasilTranslate[]
-  idDaerah       Int
-  daerah         Daerah           @relation(fields: [idDaerah], references: [idDaerah])
+  id           String     @id @default(uuid())
+  kalimat      String
+  voice        String
+  idDaerah     String
+  idTipeBahasa Int
+  tipeBahasa   TipeBahasa @relation(fields: [idTipeBahasa], references: [id])
+  daerah       Daerah     @relation(fields: [idDaerah], references: [id])
 }
 
-model HasilTranslateToDaerah {
-  id               Int            @id @default(autoincrement())
-  idDaerah         Int
-  daerah           Daerah         @relation(fields: [idDaerah], references: [idDaerah])
-  idHasilTranslate Int
-  hasilTranslate   HasilTranslate @relation(fields: [idHasilTranslate], references: [idTranslate])
+model DaerahToDaerah {
+  id        String @id @default(uuid())
+  idBahasa1 String
+  idBahasa2 String
 }
 
-model HasilTranslate {
-  idTranslate    Int                      @id @default(autoincrement())
-  hasilTranslate String
-  toDaerah       HasilTranslateToDaerah[]
-  idBahasa       Int
-  bahasa         Bahasa                   @relation(fields: [idBahasa], references: [idBahasa])
+model BahasaIndonesia {
+  id           String     @id @default(uuid())
+  kalimat      String
+  voice        String
+  idTipeBahasa Int
+  tipeBahasa   TipeBahasa @relation(fields: [idTipeBahasa], references: [id])
+}
+
+model DaerahToIndonesia {
+  id                String @id @default(uuid())
+  idBahasaDaerah    String
+  idBahasaIndonesia String
 }
