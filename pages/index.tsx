@@ -35,7 +35,7 @@ const ExplorePage: NextPage = () => {
 					<b>Are You Now?</b>
 				</div>
 				<div className="relative w-[1418.25px] h-[770.25px] text-xl">
-					<div className="absolute top-[238.55px] left-[411.83px] w-[515.08px] h-[395.21px] cursor-pointer" onClick={onMalangContainerClick}>
+					<div className="absolute top-[238.55px] left-[411.83px] w-[515.08px] h-[395.21px] cursor-pointer" onClick={() => router.push("/explore/malang")}>
 						<img
 							className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover hover:animate-[1s_ease_0s_infinite_normal_none_wobble-hor-bottom] hover:opacity-[1]"
 							alt=""
@@ -47,24 +47,24 @@ const ExplorePage: NextPage = () => {
 							className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover cursor-pointer hover:shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] hover:animate-[1s_ease_0s_infinite_normal_none_bounce-top] hover:opacity-[1]"
 							alt=""
 							src="../madiun@2x.png"
-							onClick={onMadiunImageClick}
+							onClick={() => router.push("/explore/madiun")}
 						/>
 					</div>
-					<div className="absolute top-[0px] left-[268.22px] w-[522.2px] h-[327.56px] cursor-pointer" onClick={onSurabayaContainerClick}>
+					<div className="absolute top-[0px] left-[268.22px] w-[522.2px] h-[327.56px] cursor-pointer" onClick={() => router.push("/explore/surabaya")}>
 						<img
 							className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover hover:animate-[1s_ease_0s_infinite_normal_none_bounce-top] hover:opacity-[1]"
 							alt=""
 							src="../surabaya@2x.png"
 						/>
 					</div>
-					<div className="absolute top-[280.09px] left-[738.2px] w-[680.05px] h-[490.16px] cursor-pointer" onClick={onBanyuwangiContainerClick}>
+					<div className="absolute top-[280.09px] left-[738.2px] w-[680.05px] h-[490.16px] cursor-pointer" onClick={() => router.push("/explore/banyuwangi")}>
 						<img
 							className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover hover:animate-[1s_ease_0s_infinite_normal_none_bounce-top] hover:opacity-[1]"
 							alt=""
 							src="../banyuwangi@2x.png"
 						/>
 					</div>
-					<div className="absolute top-[7.12px] left-[694.29px] w-[723.96px] h-[231.43px] cursor-pointer" onClick={onMaduraContainerClick}>
+					<div className="absolute top-[7.12px] left-[694.29px] w-[723.96px] h-[231.43px] cursor-pointer" onClick={() => router.push("/explore/madura")}>
 						<img
 							className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-cover hover:animate-[1s_ease_0s_infinite_normal_none_bounce-top] hover:opacity-[1]"
 							alt=""
