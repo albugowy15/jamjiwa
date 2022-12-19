@@ -17,7 +17,7 @@ const TranslateModal = ({ openTransModal, setOpenTransModal, defaultText }: Tran
 	const [isLoading, setIsLoading] = useState(false);
 	const translate = async () => {
 		setIsLoading(true);
-		if (inputRegionFrom === "BAHASA") {
+		if (inputRegionFrom === "BAHASA" || inputRegionTo === "BAHASA") {
 			const response = await fetch(`/api/translate/indonesia?from=${inputRegionFrom?.toLowerCase()}&to=${inputRegionTo?.toLowerCase()}&sentence=${inputText}`, {
 				method: "GET",
 			});
@@ -32,10 +32,10 @@ const TranslateModal = ({ openTransModal, setOpenTransModal, defaultText }: Tran
 				method: "GET",
 			});
 			const res = await response.json();
-			if (res.result.length === 0) {
+			if (res.translate.length === 0) {
 				setTranslatedText("Tidak bisa menerjemahkan");
 			} else {
-				setTranslatedText(res.result[0].translate);
+				setTranslatedText(res.translate[0].translate);
 			}
 		}
 		setIsLoading(false);

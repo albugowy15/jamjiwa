@@ -1,64 +1,41 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+// @ts-ignore
+// @ts-nocheck
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "@services/prisma";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const { from, to, sentence } = req.query;
+	const idSentenceFrom = await prisma.$queryRaw`SELECT b.id FROM "public"."Bahasa" b 
+													INNER JOIN "public"."Daerah" d ON (b."idDaerah"=d.id)
+													WHERE d.nama ilike ${from} AND b.kalimat ilike ${sentence}`;
+	const searchTranslate1 = await prisma.$queryRaw`SELECT dtd."idBahasa2" FROM "public"."DaerahToDaerah" dtd 
+													WHERE dtd."idBahasa1" = ${idSentenceFrom[0].id}`;
+	const searchTranslate2 = await prisma.$queryRaw`SELECT dtd."idBahasa1" FROM "public"."DaerahToDaerah" dtd 
+													WHERE dtd."idBahasa2" = ${idSentenceFrom[0].id}`;
 
-	const idKalimat = await prisma.bahasa.findFirst({
-		select: {
-			id: true,
-		},
-		where: {
-			daerah: {
-				// @ts-ignore
-				nama: {
-					equals: from,
-					mode: "insensitive",
-				},
-			},
-			kalimat: {
-				// @ts-ignore
-				equals: sentence,
-				mode: "insensitive",
-			},
-		},
-	});
-	if (!idKalimat) {
-		res.status(404).json({ status: "error", result: "Kalimat tidak ditemukan" });
-		return;
+	if (searchTranslate1.idBahasa2) {
+		const translated = await prisma.$queryRaw`SELECT b.id, b.kalimat as "translate" FROM "public"."Bahasa" b 
+													INNER JOIN "public"."Daerah" d ON (b."idDaerah"=d.id)
+													WHERE d.nama ilike ${to} AND b.id=${searchTranslate1.idBahasa2}`;
+		return res.status(200).json({
+			status: "success",
+			kalimat: sentence,
+			translate: translated,
+		});
+	} else if (searchTranslate2.idBahasa1) {
+		const translated = await prisma.$queryRaw`SELECT b.id, b.kalimat as "translate" FROM "public"."Bahasa" b 
+													INNER JOIN "public"."Daerah" d ON (b."idDaerah"=d.id)
+													WHERE d.nama ilike ${to} AND b.id=${searchTranslate2.idBahasa1}`;
+		return res.status(200).json({
+			status: "success",
+			kalimat: sentence,
+			translate: translated,
+		});
 	}
-	const idTranslate = await prisma.daerahToDaerah.findFirst({
-		select: {
-			idBahasa2: true,
-		},
-		where: {
-			// @ts-ignore
-			idBahasa1: idKalimat,
-		},
+
+	res.status(404).json({
+		status: "fail",
+		result: "Not Found",
 	});
-	const translated = await prisma.bahasa.findFirst({
-		select: {
-			kalimat: true,
-		},
-		where: {
-			// @ts-ignore
-			id: idTranslate,
-			daerah: {
-				// @ts-ignore
-				nama: {
-					equals: to,
-					mode: "insensitive",
-				},
-			},
-		},
-	});
-	if (!translated) {
-		res.status(404).json({ status: "error", result: "Kalimat pada bahasa tujuan tidak ditemukan" });
-		return;
-	}
-	res.status(200).json({
-		status: "success",
-		result: translated,
-	});
+	return;
 }
