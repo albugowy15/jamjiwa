@@ -9,7 +9,9 @@
 			"@utils/*": ["utils/*"],
 			"@hooks/*": ["hooks/*"],
 			"@interfaces/*": ["interfaces/*"],
-			"@db/*": ["db/*"]
+			"@services/*": ["services/*"],
+			"@assets/*": ["assets/*"],
+			"@modules/*": ["modules/*"]
 		},
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
