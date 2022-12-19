@@ -3,17 +3,17 @@ import { useState } from "react";
 import image1 from "@assets/image/rectangle-15@2x.png";
 import image2 from "@assets/image/rectangle-16@2x.png";
 import image3 from "@assets/image/rectangle-17@2x.png";
-import madura from "@assets/map/madura1@2x.png";
 import { RxDoubleArrowDown } from "react-icons/rx";
 import ModalPopup from "../components/ModalPopup";
 import { useRouter } from "next/router";
+import { Kota } from "@prisma/client";
+import { mapImage } from "../components/mapImage";
 
-const location = ["Ngawi", "Magetan", "Ponorogo", "Bojonegoro", "Nganjuk", "Madiun", "Pacitan"];
-
-export default function ExplorePageDetail() {
+export default function ExplorePageDetail({ kota }: { kota: Kota[] }) {
 	const [openModal, setOpenModal] = useState(false);
 	const router = useRouter();
 	const { map } = router.query;
+	const imageMap = mapImage.find((item) => item.daerah === map?.toString().toLowerCase());
 	return (
 		<>
 			<div className="bg-gray-900 flex flex-col text-3xl">
@@ -31,15 +31,15 @@ export default function ExplorePageDetail() {
 				</div>
 				<div className="flex flex-row items-center justify-center gap-6">
 					<b>Welcome to</b>
-					<b className="text-5xl text-gray-300">Madura</b>
+					<b className="text-5xl text-gray-300">{map?.toString().toUpperCase()}</b>
 				</div>
 				<div className="mx-auto">
-					<Image width={700} className="object-contain" alt="" src={madura} />
+					<Image width={700} className="object-contain" alt="" src={imageMap!.image} />
 				</div>
 				<div className="flex gap-4 mx-auto w-[60%] flex-wrap justify-center">
-					{location.map((item, index) => (
+					{kota.map((item, index) => (
 						<div className="px-5 py-4 font-bold text-base bg-gray-800 rounded-lg" key={index}>
-							{item}
+							{item.nama}
 						</div>
 					))}
 				</div>
