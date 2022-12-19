@@ -8,6 +8,7 @@ Dikembangkan oleh Kelompok Balingo :
 | FARROS HILMI SYAFEI      | 5025201012 |
 | ANGELA ORYZA PRABOWO     | 5025201022 |
 | MUHAMMAD ISMAIL          | 5025201223 |
+| MOHAMAD KHOLID BUGHOWI   | 5025201253 |
 
 ## Jalankan project ini di lokal
 
